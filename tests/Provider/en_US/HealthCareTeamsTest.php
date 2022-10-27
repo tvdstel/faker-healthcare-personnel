@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace HealthcareTeamsFaker;
 
 use HealthcareTeamsFaker\Provider\en_US\HealthCareTeams;
@@ -19,9 +18,14 @@ class HealthCareTeamsTest extends TestCase
         $this->faker = $faker;
     }
 
-    public function test_it_can_test()
+    public function test_it_can_return_a_location_name(): void
     {
-       var_dump($this->faker->function);
-       $this->assertIsString($this->faker->function);
+        $this->assertIsString($this->faker->location());
     }
+
+    public function test_it_can_return_a_team_name():void
+    {
+        $this->assertIsString($this->faker->team());
+    }
+
 }
