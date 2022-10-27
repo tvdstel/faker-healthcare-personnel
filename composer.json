@@ -1,0 +1,23 @@
+{
+    "authors": [
+        {
+            "name": "tvkvds",
+            "email": "tvkvds@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "HealthcareTeamsFaker\\": "src"
+        }
+    },
+    "license": "MIT",
+    "name": "tvkvds/healthcareteamsfaker",
+    "require": {
+        "fakerphp/faker": "^1.19"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "type": "library"
+}
+
