@@ -12,6 +12,7 @@
     },
     "license": "MIT",
     "name": "tvkvds/healthcareteamsfaker",
+    "description": "Faking healthcare teams related data.",
     "require": {
         "fakerphp/faker": "^1.19"
     },
