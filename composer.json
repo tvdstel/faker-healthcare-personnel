@@ -21,7 +21,7 @@
     },
     "type": "library",
     "scripts": {
-        "test": "vendor/bin/phpunit ."
+        "test": "vendor/bin/phpunit"
     }
 }
 
