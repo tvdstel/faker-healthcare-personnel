@@ -36,5 +36,7 @@ class HealthCareTeams extends Base
         }
         return HealthCareTeamsData::teamForLocation($location);
     }
+
+    // :)
 }
 
