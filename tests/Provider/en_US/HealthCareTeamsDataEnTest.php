@@ -8,7 +8,7 @@ use Faker\Factory;
 use HealthcareTeamsFaker\Provider\en_US\HealthCareTeamsData;
 use PHPUnit\Framework\TestCase;
 
-class HealthCareTeamsDataTest extends TestCase
+class HealthCareTeamsDataEnTest extends TestCase
 {
 
     public function setUp(): void

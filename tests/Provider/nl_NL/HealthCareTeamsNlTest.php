@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use Faker\Factory;
 use HealthcareTeamsFaker\Provider\nl_NL\HealthCareTeams;
 
-class HealthCareTeamsTest extends TestCase
+class HealthCareTeamsNlTest extends TestCase
 {
 
     public function setUp(): void
