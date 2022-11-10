@@ -37,4 +37,4 @@ jobs:
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run test with phpunit
-      run: tests
+      run: test
