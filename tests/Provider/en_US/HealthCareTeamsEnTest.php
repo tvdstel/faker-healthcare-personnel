@@ -5,11 +5,11 @@ declare(strict_types=1);
 
 namespace HealthcareTeamsFaker;
 
-use PHPUnit\Framework\TestCase;
+use HealthcareTeamsFaker\Provider\en_US\HealthCareTeams;
 use Faker\Factory;
-use HealthcareTeamsFaker\Provider\nl_NL\HealthCareTeams;
+use PHPUnit\Framework\TestCase;
 
-class HealthCareTeamsTest extends TestCase
+class HealthCareTeamsEnTest extends TestCase
 {
 
     public function setUp(): void
@@ -21,7 +21,7 @@ class HealthCareTeamsTest extends TestCase
 
     public function test_it_can_test()
     {
-        var_dump($this->faker->function);
-        $this->assertIsString($this->faker->function);
+       var_dump($this->faker->function);
+       $this->assertIsString($this->faker->function);
     }
 }
