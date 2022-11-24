@@ -7,5 +7,8 @@ namespace HealthcareTeamsFaker\Provider\en_US;
 
 class HealthCareTeamsData
 {
-    // create data for the faker
+    public function location()
+    {
+
+    }
 }

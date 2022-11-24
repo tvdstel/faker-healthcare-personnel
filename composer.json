@@ -11,7 +11,7 @@
         }
     },
     "license": "MIT",
-    "name": "tvkvds/healthcareteamsfaker",
+    "name": "tvkvds/faker-healthcare-personnel",
     "require": {
         "fakerphp/faker": "^1.19"
     },
