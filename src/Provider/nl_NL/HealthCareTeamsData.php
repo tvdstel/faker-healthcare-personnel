@@ -10,10 +10,10 @@ class HealthCareTeamsData
 
 
     /*
-     *  Pay attention to the order in which your parts are set.
-     *  This order will be used to generate the names.
+     *  Pay attention to the order in which your elements are set.
+     *  This order will be used to generate the location name.
      */
-    public static array $locationParts = [
+    public static array $locationNameElements = [
         'location',
         'place',
         'region',
@@ -23,13 +23,13 @@ class HealthCareTeamsData
         'suffix',
     ];
 
-    public static array $locationOptions = [
+    public static array $locationCompositions = [
         'location place',
         'place region',
         'location tree',
-        'prefix namesuffix',
-        'location namesuffix',
-        'prefix treesuffix'
+        'prefix name-suffix',
+        'location name-suffix',
+        'prefix tree-suffix'
     ];
 
     public static array $locationPlaces = [
@@ -102,4 +102,78 @@ class HealthCareTeamsData
         'burcht',
         'kerk',
     ];
+
+
+    /*
+     *  Pay attention to the order in which your elements are set.
+     *  This order will be used to generate the location name.
+     */
+    public static array $teamNameElements = [
+        'prefix',
+        'name',
+        'disease',
+        'care',
+        'suffix',
+    ];
+
+    public static array $teamCompositions = [
+        'disease care',
+        'name suffix',
+        'prefix name',
+    ];
+
+    public static array $teamDiseases = [
+        'COPD ',
+        'Endocrinologie ',
+        'Dementie ',
+        'KNO ',
+        'Dermatologie ',
+        'Oncologie ',
+        'Gyneacologie ',
+        'Fysiotherapie ',
+        'Ergotherapie ',
+        'Psychotherapie ',
+        'Geriatrie '
+    ];
+
+    public static array $teamCare = [
+        'Dagbehandeling',
+        'Dagbesteding',
+        'Opname',
+        'Wijkverpleging',
+        'Behandeling',
+    ];
+
+    public static array $teamNames = [
+        'Huishoudelijke dienst ',
+        'Receptie ',
+        'Linnendienst ',
+        'Voedingsdienst ',
+        'Receptie ',
+        'Applicatiebeheer ',
+        'Informatievoorziening ',
+        'HRM ',
+        'Financien ',
+        'Onderzoek ',
+    ];
+
+    public static array $teamSuffix = [
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '1a',
+        '2a',
+        '3b',
+        '4a',
+        '5b',
+    ];
+
+    public static array $teamPrefix = [
+        'Team ',
+        'Managers ',
+    ];
+
+
 }

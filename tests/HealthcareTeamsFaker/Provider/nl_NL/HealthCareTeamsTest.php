@@ -26,15 +26,24 @@ class HealthCareTeamsTest extends TestCase
     public function test_it_returns_valid_location()
     {
         $location = $this->faker->location();
-        var_dump($location);
 
         $this->assertIsString($location);
         $this->assertEquals($location, trim($location));
+    }
 
-        for($i = 0; $i < 100; $i++)
-        {
-            $location = $this->faker->location();
-            var_dump($location);
-        }
+    public function test_it_returns_valid_team()
+    {
+        $team = $this->faker->team();
+
+        $this->assertIsString($team);
+        $this->assertEquals($team, trim($team));
+    }
+
+    public function test_it_can_prepend_location_to_team()
+    {
+        $location = $this->faker->location();
+        $team = $this->faker->team($location);
+
+        $this->assertStringContainsString($location, $team);
     }
 }

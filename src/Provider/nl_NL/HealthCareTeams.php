@@ -16,36 +16,67 @@ class HealthCareTeams extends Base
 
     /*
      *  Returns a two part location name.
-     *  Location name is created with multiple parts in altering compositions in a human-readable sequence.
+     *  Location name is created with multiple elements in altering compositions in a human-readable sequence.
      */
     public function location(): string
     {
         $locationName = '';
-        $option = static::randomElement(HealthCareTeamsData::$locationOptions);
+        $composition = static::randomElement(HealthCareTeamsData::$locationCompositions);
 
-        foreach (HealthCareTeamsData::$locationParts as $part)
+        foreach (HealthCareTeamsData::$locationNameElements as $nameElement)
         {
-            match ($part)
+            match ($nameElement)
             {
-                'location' => $locationName = $this->addWhenContains($option, $part, 'Locatie ', $locationName),
-                'place' => $locationName = $this->addWhenContains($option, $part, static::randomElement(HealthCareTeamsData::$locationPlaces), $locationName),
-                'region' => $locationName = $this->addWhenContains($option, $part, static::randomElement(HealthCareTeamsData::$locationRegions),  $locationName),
-                'prefix' => $locationName = $this->addWhenContains($option, $part, static::randomElement(HealthCareTeamsData::$locationPrefix),  $locationName),
-                'tree' => $locationName = $this->addWhenContains($option, $part, static::randomElement(HealthCareTeamsData::$locationTrees),  $locationName),
-                'name' => $locationName = $this->addWhenContains($option, $part, static::randomElement(HealthCareTeamsData::$locationNames),  $locationName),
-                'suffix' => $locationName = $this->addWhenContains($option, $part, static::randomElement(HealthCareTeamsData::$locationSuffix),  $locationName),
+                'location' => $locationName = $this->addToNameWhenContains($composition, $nameElement, $locationName, 'Locatie '),
+                'place' => $locationName = $this->addToNameWhenContains($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationPlaces)),
+                'region' => $locationName = $this->addToNameWhenContains($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationRegions)),
+                'prefix' => $locationName = $this->addToNameWhenContains($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationPrefix)),
+                'tree' => $locationName = $this->addToNameWhenContains($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationTrees)),
+                'name' => $locationName = $this->addToNameWhenContains($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationNames)),
+                'suffix' => $locationName = $this->addToNameWhenContains($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationSuffix)),
             };
         }
 
         return trim($locationName);
     }
 
-    public function addWhenContains(string $requestedOption, string $part, string $partName, string $attribute)
+    /*
+    *  Returns a two part team name that can be prepended with a location name.
+    */
+    public function team(string $location = null): string
     {
-        if(str_contains($requestedOption, $part))
+        $teamName = '';
+        $composition = static::randomElement(HealthCareTeamsData::$teamCompositions);
+
+        foreach (HealthCareTeamsData::$teamNameElements as $nameElement)
         {
-           $attribute .= $partName;
+            match ($nameElement)
+            {
+                'prefix' => $teamName = $this->addToNameWhenContains($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamPrefix)),
+                'name' => $teamName = $this->addToNameWhenContains($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamNames)),
+                'disease' => $teamName = $this->addToNameWhenContains($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamDiseases)),
+                'care' => $teamName = $this->addToNameWhenContains($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamCare)),
+                'suffix' => $teamName = $this->addToNameWhenContains($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamSuffix)),
+            };
         }
-        return $attribute;
+
+        if($location)
+        {
+            $teamName = $location . ' ' . $teamName;
+        }
+
+        return trim($teamName);
+    }
+
+    /*
+    *  Adds extra part to a name when passed option is present in passed element.
+    */
+    public function addToNameWhenContains(string $option, string $element, string $name, string $partName,): string
+    {
+        if(str_contains($option, $element))
+        {
+           $name .= $partName;
+        }
+        return $name;
     }
 }
