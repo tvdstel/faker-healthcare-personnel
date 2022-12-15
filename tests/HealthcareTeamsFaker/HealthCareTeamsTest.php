@@ -15,7 +15,7 @@ final class HealthCareTeamsTest extends TestCase
 
     public function setUp(): void
     {
-        $this->folder = array_diff(scandir('../../src/Provider'), array('..', '.'));
+        $this->folder = array_diff(scandir('src/Provider'), array('..', '.'));
     }
 
     public function test_location_returns_string_in_all_languages(): void
