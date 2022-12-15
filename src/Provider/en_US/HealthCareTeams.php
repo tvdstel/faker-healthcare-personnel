@@ -6,7 +6,6 @@ declare(strict_types=1);
 namespace HealthcareTeamsFaker\Provider\en_US;
 
 use Faker\Provider\Base;
-use HealthcareTeamsFaker\Provider\nl_NL\HealthCareTeamsData;
 
 
 class HealthCareTeams extends Base
@@ -68,7 +67,7 @@ class HealthCareTeams extends Base
     /*
     *  Returns a one part function group name.
     */
-    public function functionGroup()
+    public function functionGroup(): string
     {
         $functionGroupName = '';
         $composition = static::randomElement(HealthCareTeamsData::$functionGroupCompositions);
@@ -87,14 +86,13 @@ class HealthCareTeams extends Base
     /*
     *  Returns a one or two part function name.
     */
-    public function function()
+    public function function(): string
     {
         $functionName = '';
         $composition = static::randomElement(HealthCareTeamsData::$functionCompositions);
 
         foreach (HealthCareTeamsData::$functionNameElements as $nameElement)
         {
-            var_dump($nameElement);
             match ($nameElement)
             {
                 'prefix' => $functionName = $this->addElementWhenInComposition($composition, $nameElement, $functionName, static::randomElement(HealthCareTeamsData::$functionPrefix)),
@@ -103,6 +101,58 @@ class HealthCareTeams extends Base
         }
 
         return trim($functionName);
+    }
+
+    public function specialisationGroup(): string
+    {
+        $specialisationGroupName = '';
+        $composition = static::randomElement(HealthCareTeamsData::$specialisationGroupCompositions);
+
+        foreach (HealthCareTeamsData::$specialisationGroupNameElements as $nameElement)
+        {
+            match ($nameElement)
+            {
+                'name' => $specialisationGroup = $this->addElementWhenInComposition($composition, $nameElement, $specialisationGroupName, static::randomElement(HealthCareTeamsData::$specialisationGroupNames)),
+            };
+        }
+
+        return trim($specialisationGroup);
+    }
+
+    public function specialisation(): string
+    {
+        $specialisationName = '';
+        $composition = static::randomElement(HealthCareTeamsData::$specialisationCompositions);
+
+        foreach (HealthCareTeamsData::$specialisationNameElements as $nameElement)
+        {
+            match ($nameElement)
+            {
+                'name' => $specialisation = $this->addElementWhenInComposition($composition, $nameElement, $specialisationName, static::randomElement(HealthCareTeamsData::$specialisationNames)),
+            };
+        }
+
+        return trim($specialisation);
+    }
+
+    /*
+    *  Returns a one or two part function name.
+    */
+    public function contractType(): string
+    {
+        $contractTypeName = '';
+        $composition = static::randomElement(HealthCareTeamsData::$contractTypeCompositions);
+
+        foreach (HealthCareTeamsData::$contractTypeNameElements as $nameElement)
+        {
+            match ($nameElement)
+            {
+                'name' => $contractType = $this->addElementWhenInComposition($composition, $nameElement, $contractTypeName, static::randomElement(HealthCareTeamsData::$contractTypeNames)),
+                'suffix' => $contractType = $this->addElementWhenInComposition($composition, $nameElement, $contractTypeName, 'Contract'),
+            };
+        }
+
+        return trim($contractTypeName);
     }
 
     /*

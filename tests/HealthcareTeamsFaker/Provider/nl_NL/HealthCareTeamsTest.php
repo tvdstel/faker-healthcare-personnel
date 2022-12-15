@@ -17,12 +17,6 @@ class HealthCareTeamsTest extends TestCase
         $this->faker->addProvider(new HealthCareTeams($this->faker));
     }
 
-    public function test_it_can_return_a_function()
-    {
-        $function = $this->faker->function();
-        $this->assertIsString($function);
-    }
-
     public function test_it_returns_valid_location()
     {
         $location = $this->faker->location();
@@ -61,5 +55,29 @@ class HealthCareTeamsTest extends TestCase
 
         $this->assertIsString($function);
         $this->assertEquals($function, trim($function));
+    }
+
+    public function test_it_returns_valid_specialisation_group()
+    {
+        $specialisationGroup = $this->faker->specialisationGroup();
+
+        $this->assertIsString($specialisationGroup);
+        $this->assertEquals($specialisationGroup, trim($specialisationGroup));
+    }
+
+    public function test_it_returns_valid_specialisation()
+    {
+        $specialisation = $this->faker->specialisation();
+
+        $this->assertIsString($specialisation);
+        $this->assertEquals($specialisation, trim($specialisation));
+    }
+
+    public function test_it_returns_valid_contract_type()
+    {
+        $contractType = $this->faker->contractType();
+
+        $this->assertIsString($contractType);
+        $this->assertEquals($contractType, trim($contractType));
     }
 }

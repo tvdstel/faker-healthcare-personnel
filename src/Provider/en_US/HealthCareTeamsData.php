@@ -249,7 +249,94 @@ class HealthCareTeamsData
         'Apprentice ',
     ];
 
+    /*
+   *  Pay attention to the order in which your elements are set.
+   *  This order will be used to generate the name.
+   */
+    public static array $specialisationGroupNameElements = [
+        'name',
+    ];
 
+    public static array $specialisationGroupCompositions = [
+        'name',
+    ];
 
+    public static array $specialisationGroupNames = [
+        'Disorder/Clinical picture',
+        'Care and Treatment',
+        'Well-being',
+        'Learning and working',
+        'Organisation',
+        'Miscellaneous',
+    ];
 
+    /*
+  *  Pay attention to the order in which your elements are set.
+  *  This order will be used to generate the name.
+  */
+    public static array $specialisationNameElements = [
+        'name',
+    ];
+
+    public static array $specialisationCompositions = [
+        'name',
+    ];
+
+    public static array $specialisationNames = [
+        'Heart failure',
+        'Dementia',
+        'Lung diseases',
+        'Learning and working',
+        'Rheumatism',
+        'Blood pricking',
+        'Manuel therapy',
+        'Palliative care',
+        'Multicultural zorg',
+        'Nutrition',
+        'Internship guidance',
+        'Salary',
+        'Coaching',
+        'Working conditions',
+        'Declarations',
+        'Law',
+        'Complaints',
+        'Data protection',
+        'Care administration',
+        'Events',
+        'Intranet',
+        'Safety',
+        'Digital presence',
+        'Durability',
+        'Daytime activities',
+    ];
+
+    /*
+  *  Pay attention to the order in which your elements are set.
+  *  This order will be used to generate the name.
+  */
+    public static array $contractTypeNameElements = [
+        'name',
+        'suffix',
+    ];
+
+    public static array $contractTypeCompositions = [
+        'name',
+        'name suffix',
+    ];
+
+    public static array $contractTypeNames = [
+        'Fulltime ',
+        'Parttime ',
+        'Zero-hour ',
+        'Casual ',
+        'Freelance ',
+        'Union ',
+        'Executive ',
+        'At-will ',
+        'Temp ',
+    ];
+
+    public static array $contractTypeSuffix = [
+        'Contract',
+    ];
 }

@@ -9,7 +9,6 @@ use Faker\Provider\Base;
 
 class HealthCareTeams extends Base
 {
-
     /*
      *  Returns a two part location name.
      *  Location name is created with multiple elements in altering compositions in a human-readable sequence.
@@ -64,10 +63,7 @@ class HealthCareTeams extends Base
         return trim($teamName);
     }
 
-    /*
-    *  Returns a one part function group name.
-    */
-    public function functionGroup()
+    public function functiongroup()
     {
         $functionGroupName = '';
         $composition = static::randomElement(HealthCareTeamsData::$functionGroupCompositions);
@@ -76,7 +72,7 @@ class HealthCareTeams extends Base
         {
             match ($nameElement)
             {
-                'name' => $functionGroupName = $this->addElementWhenInComposition($composition, $nameElement, $functionGroupName, static::randomElement(HealthCareTeamsData::$functionGroupNames)),
+                'name' => $functionGroupName = $this->addElementWhenInComposition($composition, $nameElement,$functionGroupName, static::randomElement(HealthCareTeamsData::$functionGroupNames)),
             };
         }
 
@@ -84,9 +80,9 @@ class HealthCareTeams extends Base
     }
 
     /*
-    *  Returns a one or two part function name.
-    */
-    public function function()
+   *  Returns a one or two part function name.
+   */
+    public function function(): string
     {
         $functionName = '';
         $composition = static::randomElement(HealthCareTeamsData::$functionCompositions);
@@ -102,11 +98,63 @@ class HealthCareTeams extends Base
 
         return trim($functionName);
     }
+    public function specialisationGroup(): string
+    {
+        $specialisationGroupName = '';
+        $composition = static::randomElement(HealthCareTeamsData::$specialisationGroupCompositions);
+
+        foreach (HealthCareTeamsData::$specialisationGroupNameElements as $nameElement)
+        {
+            match ($nameElement)
+            {
+                'name' => $specialisationGroup = $this->addElementWhenInComposition($composition, $nameElement, $specialisationGroupName, static::randomElement(HealthCareTeamsData::$specialisationGroupNames)),
+            };
+        }
+
+        return trim($specialisationGroup);
+    }
+
+    public function specialisation(): string
+    {
+        $specialisationName = '';
+        $composition = static::randomElement(HealthCareTeamsData::$specialisationCompositions);
+
+        foreach (HealthCareTeamsData::$specialisationNameElements as $nameElement)
+        {
+            match ($nameElement)
+            {
+                'name' => $specialisation = $this->addElementWhenInComposition($composition, $nameElement, $specialisationName, static::randomElement(HealthCareTeamsData::$specialisationNames)),
+            };
+        }
+
+        return trim($specialisation);
+    }
+
+    /*
+    *  Returns a one or two part function name.
+    */
+    public function contractType(): string
+    {
+        $contractTypeName = '';
+        $composition = static::randomElement(HealthCareTeamsData::$contractTypeCompositions);
+
+        foreach (HealthCareTeamsData::$contractTypeNameElements as $nameElement)
+        {
+            match ($nameElement)
+            {
+                'name' => $contractType = $this->addElementWhenInComposition($composition, $nameElement, $contractTypeName, static::randomElement(HealthCareTeamsData::$contractTypeNames)),
+                'suffix' => $contractType = $this->addElementWhenInComposition($composition, $nameElement, $contractTypeName, 'Contract'),
+            };
+        }
+
+        return trim($contractTypeName);
+    }
+
 
     /*
     *  Adds extra part to a name when passed option is present in passed element.
     */
-    public function addElementWhenInComposition(string $option, string $element, string $name, string $partName): string
+    public function addElementWhenInComposition(string $option, string $element, string $name, string $partName,): string
     {
         if(str_contains($option, $element))
         {

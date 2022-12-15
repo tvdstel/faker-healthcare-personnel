@@ -261,4 +261,99 @@ class HealthCareTeamsData
         'Regie ',
     ];
 
+    /*
+  *  Pay attention to the order in which your elements are set.
+  *  This order will be used to generate the name.
+  */
+    public static array $specialisationGroupNameElements = [
+        'name',
+    ];
+
+    public static array $specialisationGroupCompositions = [
+        'name',
+    ];
+
+    public static array $specialisationGroupNames = [
+        'Aandoening/ziektebeeld',
+        'Zorg en Behandeling',
+        'Welzijn',
+        'Leren en werken',
+        'Organisatie',
+        'Overig',
+    ];
+
+    /*
+  *  Pay attention to the order in which your elements are set.
+  *  This order will be used to generate the name.
+  */
+    public static array $specialisationNameElements = [
+        'name',
+    ];
+
+    public static array $specialisationCompositions = [
+        'name',
+    ];
+
+    public static array $specialisationNames = [
+        'Hartfalen',
+        'Dementie',
+        'Longaandoeningen',
+        'Leren en werken',
+        'Reuma',
+        'Bloed prikken',
+        'Manuele therapie',
+        'Palliatieve zorg',
+        'Multiculturele zorg',
+        'Voeding',
+        'Stagebegeleiding',
+        'Salaris',
+        'Coaching',
+        'Arbeidsvoorwaarden',
+        'Declaraties',
+        'Wetgeving',
+        'Klachten',
+        'Gegevensbescherming',
+        'Zorgadministratie',
+        'Evenementen',
+        'Intranet',
+        'Veiligheid',
+        'Website',
+        'Duurzaamheid',
+        'Dagbesteding',
+    ];
+
+    /*
+  *  Pay attention to the order in which your elements are set.
+  *  This order will be used to generate the name.
+  */
+    public static array $contractTypeNameElements = [
+        'name',
+        'suffix',
+    ];
+
+    public static array $contractTypeCompositions = [
+        'name',
+        'name suffix',
+    ];
+
+    public static array $contractTypeNames = [
+        'Bepaalde tijd fulltime ',
+        'Bepaalde tijd parttime ',
+        'Onbepaalde tijd fulltime ',
+        'Onbepaalde tijd parttime ',
+        'Leerling BBL ',
+        'Leerling BOL ',
+        'Medewerker in opleiding ',
+        'Uitzendkracht ',
+        'Oproepkracht ',
+        'ZZP-er ',
+        'Externe ',
+        'Vrijwilliger ',
+    ];
+
+    public static array $contractTypeSuffix = [
+        'Contract',
+    ];
+
+
 }
