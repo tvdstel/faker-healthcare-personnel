@@ -24,6 +24,7 @@
     },
     "name": "tvkvds/faker-healthcare-personnel",
     "description": "Faking healthcare teams related data",
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "version": "1.0.0"
 }
 
