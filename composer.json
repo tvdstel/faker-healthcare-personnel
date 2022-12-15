@@ -11,13 +11,17 @@
         }
     },
     "license": "MIT",
-    "name": "tvkvds/faker-healthcare-personnel",
+    "name": "tvkvds/healthcareteamsfaker",
+    "description": "Faking healthcare teams related data.",
     "require": {
         "fakerphp/faker": "^1.19"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
     },
-    "type": "library"
+    "type": "library",
+    "scripts": {
+        "test": "vendor/bin/phpunit ."
+    }
 }
 

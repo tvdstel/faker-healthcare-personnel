@@ -7,7 +7,6 @@ namespace HealthcareTeamsFaker\Provider\en_US;
 
 use Faker\Provider\Base;
 
-
 class HealthCareTeams extends Base
 {
     /*
