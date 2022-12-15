@@ -6,12 +6,10 @@ namespace HealthcareTeamsFaker\Provider\nl_NL;
 
 class HealthCareTeamsData
 {
-    public static array $functions = ['baas', 'boven baas'];
-
 
     /*
      *  Pay attention to the order in which your elements are set.
-     *  This order will be used to generate the location name.
+     *  This order will be used to generate the name.
      */
     public static array $locationNameElements = [
         'location',
@@ -106,7 +104,7 @@ class HealthCareTeamsData
 
     /*
      *  Pay attention to the order in which your elements are set.
-     *  This order will be used to generate the location name.
+     *  This order will be used to generate the name.
      */
     public static array $teamNameElements = [
         'prefix',
@@ -175,5 +173,92 @@ class HealthCareTeamsData
         'Managers ',
     ];
 
+    /*
+   *  Pay attention to the order in which your elements are set.
+   *  This order will be used to generate the name.
+   */
+    public static array $functionGroupNameElements = [
+        'name',
+
+    ];
+
+    public static array $functionGroupCompositions = [
+        'name',
+    ];
+
+    public static array $functionGroupNames = [
+        'Klantadministratie',
+        'Receptie',
+        'Facilitair',
+        'HR / P&O',
+        'ICT & ApplicatieBeheer',
+        'Wasserij',
+        'Bestuur',
+        'Arts/specialist',
+        'Verplegers',
+        'Vrijwilligers',
+        'Verzorgenden',
+        'Stage / Opleidingsplaatsen',
+        'Paramedisch',
+    ];
+
+    /*
+    *  Pay attention to the order in which your elements are set.
+    *  This order will be used to generate the name.
+    */
+    public static array $functionNameElements = [
+        'prefix',
+        'name',
+    ];
+
+    public static array $functionCompositions = [
+        'name',
+        'prefix name',
+    ];
+
+    public static array $functionNames = [
+        'Basis Arts',
+        'Arts',
+        'Arts Specialist',
+        'Secretaresse',
+        'Vrijwilliger',
+        'Voorman',
+        'Verpleegkundige',
+        'Wijkverpleegkundige',
+        'Praktijkverpleegkundige',
+        'Staf',
+        'Verzorgende',
+        'Receptioniste',
+        'Gastvrouw',
+        'Kok',
+        'Sous chef',
+        'Onderhoudstechnicus',
+        'Magazijn',
+        'Inkoper',
+        'Psycholoog',
+        'Diëtist',
+        'Therapeut',
+        'Applicatiebeheerder',
+        'Begeleider',
+        'Receptionist',
+        'Inkoper',
+        'Chaffeur',
+    ];
+
+    public static array $functionPrefix = [
+        'Inval ',
+        'Hoofd ',
+        'Medewerker ',
+        'Coordinator ',
+        'Adviseur ',
+        'Teamleider ',
+        'Recruiter ',
+        'Junior ',
+        'Manager ',
+        'Assistent ',
+        'Stagiaire ',
+        'Leerling ',
+        'Regie ',
+    ];
 
 }

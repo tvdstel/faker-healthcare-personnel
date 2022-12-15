@@ -46,4 +46,20 @@ class HealthCareTeamsTest extends TestCase
 
         $this->assertStringContainsString($location, $team);
     }
+
+    public function test_it_returns_valid_function_group()
+    {
+        $functionGroup = $this->faker->functionGroup();
+
+        $this->assertIsString($functionGroup);
+        $this->assertEquals($functionGroup, trim($functionGroup));
+    }
+
+    public function test_it_returns_valid_function()
+    {
+        $function = $this->faker->function();
+
+        $this->assertIsString($function);
+        $this->assertEquals($function, trim($function));
+    }
 }
