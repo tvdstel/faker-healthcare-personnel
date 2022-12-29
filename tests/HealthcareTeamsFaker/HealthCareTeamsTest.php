@@ -4,6 +4,7 @@ namespace HealthcareTeamsFaker;
 
 
 use PHPUnit\Framework\TestCase;
+
 use Faker\Factory;
 
 final class HealthCareTeamsTest extends TestCase
@@ -35,6 +36,21 @@ final class HealthCareTeamsTest extends TestCase
             $faker = Factory::create();
             $faker->addProvider(new $class($faker));
             $this->assertIsString($faker->team());
+        }
+    }
+
+    public function test_team_can_be_prepended_with_location_in_all_languages(): void
+    {
+        foreach ($this->folder as $folder) {
+            $class = $this->prefix . $folder . $this->suffix;
+            $faker = Factory::create();
+            $faker->addProvider(new $class($faker));
+
+            $location = $faker->location();
+            $team = $faker->team($location);
+
+            $this->assertIsString($faker->team());
+            $this->assertStringContainsString($location, $team);
         }
     }
 
@@ -87,4 +103,5 @@ final class HealthCareTeamsTest extends TestCase
             $this->assertIsString($faker->contractType());
         }
     }
+
 }
