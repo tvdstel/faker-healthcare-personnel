@@ -30,7 +30,7 @@ $faker->specialisationGroup();
 $faker->team(); // optional: pass location name to prepend
 ```
 
-## Available language formatters
+## Available language formatters / locales
 
 * en_US
 * nl_NL
