@@ -13,7 +13,11 @@ class HealthCareTeams extends Base
         '{{contractTypeName}} {{contractTypeSuffix}}',
     ];
 
-    public static array $contractTypeNames = [
+    public static array $contractTypeSuffix = [
+        'Contract',
+    ];
+
+    public static array $contractTypeName = [
         'Bepaalde tijd fulltime', 'Bepaalde tijd parttime', 'Externe', 'Leerling BBL', 'Leerling BOL',
         'Medewerker in opleiding', 'Onbepaalde tijd fulltime', 'Onbepaalde tijd parttime', 'Oproepkracht',
         'Uitzendkracht', 'Vrijwilliger', 'ZZP-er'
@@ -26,22 +30,22 @@ class HealthCareTeams extends Base
 
     public static array $functionGroupNames = [
         'Arts/specialist', 'Bestuur', 'Facilitair', 'HR / P&O', 'ICT & ApplicatieBeheer', 'Klantadministratie',
-        'Paramedisch', 'Receptie', 'Stage / Opleidingsplaatsen', 'Verplegers', 'Verzorgenden', 'Vrijwilligers',  'Wasserij'
+        'Paramedisch', 'Receptie', 'Stage / Opleidingsplaatsen', 'Verplegers', 'Verzorgenden', 'Vrijwilligers', 'Wasserij'
     ];
 
-    public static array $functionNames = [
-        'Applicatiebeheerder', 'Arts Specialist', 'Arts', 'Basis Arts', 'Begeleider', 'Chaffeur', 'Diëtist', 'Gastvrouw',
+    public static array $functionName = [
+        'Applicatiebeheerder', 'Arts Specialist', 'Arts', 'Basis Arts', 'Begeleider', 'Chauffeur', 'Diëtist', 'Gastvrouw',
         'Inkoper', 'Inkoper', 'Kok', 'Magazijn', 'Onderhoudstechnicus', 'Praktijkverpleegkundige', 'Psycholoog',
         'Receptionist', 'Receptioniste', 'Secretaresse', 'Sous chef', 'Staf', 'Therapeut', 'Verpleegkundige', 'Verzorgende',
         'Voorman', 'Vrijwilliger', 'Wijkverpleegkundige'
     ];
 
-    public static array $functionPrefixes = [
+    public static array $functionPrefix = [
         'Adviseur', 'Assistent', 'Coordinator', 'Hoofd', 'Inval', 'Junior', 'Leerling', 'Manager', 'Medewerker',
         'Recruiter', 'Regie', 'Stagiaire', 'Teamleider'
     ];
 
-    public static array $locationCities = [
+    public static array $locationCity = [
         'Amersfoort', 'Enschede', 'Haarlem', 'Heerenberg', 'Hollum', 'Klundert', 'Kortenhoef', 'Leiden', 'Purmerend',
         'Schinveld', 'Utrecht', 'Vreeland', 'Waddinxveen', 'Wierden'
     ];
@@ -55,24 +59,28 @@ class HealthCareTeams extends Base
         '{{prependLocation}} {{locationTree}}',
     ];
 
-    public static array $locationNames = [
+    public static array $locationName = [
         'Doenrade' ,'Dussen' ,'Essen' ,'Horn' ,'Laar' ,'Mensinge' ,'Nuwen' ,'Ooijen' ,'Vanen' ,'Wychen'
     ];
 
-    public static array $locationPrefixes = [
+    public static array $locationPrefix = [
         'Grote', 'Kleine', 'Nieuwe', 'Oude'
     ];
 
-    public static array $locationRegions = [
+    public static array $locationRegion = [
         'Midden', 'Noord', 'Oost', 'West', 'Zuid'
     ];
 
-    public static array $locationSuffixes = [
+    public static array $locationSuffix = [
         'burcht', 'haven', 'hof', 'kerk', 'land', 'molen', 'schut', 'sluis', 'vijver', 'water'
     ];
 
-    public static array $locationTrees = [
+    public static array $locationTree = [
         'Esdoorn', 'Hazelaar', 'Hulst', 'Kastanje', 'Magnolia', 'Meidoorn', 'Olijfboom', 'Vlier', 'Waterwilg', 'Zilverlinde'
+    ];
+
+    public static array $prependLocation = [
+        'Locatie',
     ];
 
     public static array $specialisationGroupNames = [
@@ -86,11 +94,11 @@ class HealthCareTeams extends Base
         'Veiligheid', 'Voeding', 'Website', 'Wetgeving', 'Zorgadministratie'
     ];
 
-    public static array $teamCares = [
+    public static array $teamCare = [
         'Behandeling', 'Dagbehandeling', 'Dagbesteding', 'Opname', 'Wijkverpleging'
     ];
 
-    public static array $teamDiseases = [
+    public static array $teamDisease = [
         'COPD', 'Dementie', 'Dermatologie', 'Endocrinologie', 'Ergotherapie', 'Fysiotherapie', 'Geriatrie',
         'Gynaecologie', 'KNO', 'Oncologie', 'Psychotherapie'
     ];
@@ -101,16 +109,16 @@ class HealthCareTeams extends Base
         '{{teamPrefix}} {{teamName}}'
     ];
 
-    public static array $teamNames = [
+    public static array $teamName = [
         'Applicatiebeheer', 'Financien', 'HRM', 'Huishoudelijke dienst', 'Informatievoorziening', 'Linnendienst',
         'Onderzoek', 'Receptie', 'Receptie', 'Voedingsdienst'
     ];
 
-    public static array $teamSuffixes = [
+    public static array $teamSuffix = [
         '1', '2', '3', '4', '5', '1a', '2a', '3b', '4a', '5b',
     ];
 
-    public static array $teamPrefixes = [
+    public static array $teamPrefix = [
         'Managers', 'Team',
     ];
 
@@ -119,7 +127,7 @@ class HealthCareTeams extends Base
      */
     public function contractType(): string
     {
-        return $this->generator->parse(static::randomElement(static::$contractTypeFormats));
+        return $this->parseFromProperty(static::randomElement(static::$contractTypeFormats));
     }
 
     /*
@@ -127,7 +135,7 @@ class HealthCareTeams extends Base
     */
     public function function(): string
     {
-        return $this->generator->parse(static::randomElement(static::$functionFormats));
+        return $this->parseFromProperty(static::randomElement(static::$functionFormats));
     }
 
     /*
@@ -143,7 +151,7 @@ class HealthCareTeams extends Base
     */
     public function location(): string
     {
-        return $this->generator->parse(static::randomElement(static::$locationFormats));
+        return $this->parseFromProperty(static::randomElement(static::$locationFormats));
     }
 
     /*
@@ -167,9 +175,9 @@ class HealthCareTeams extends Base
     */
     public function team(string $location = null): string
     {
-        $team = $this->generator->parse(static::randomElement(static::$teamFormats));
+        $team = $this->parseFromProperty(static::randomElement(static::$teamFormats));
 
-        if(is_string($location))
+        if(isset($location))
         {
             $team = $location . ' ' . $team;
         }
@@ -177,85 +185,16 @@ class HealthCareTeams extends Base
         return $team;
     }
 
-    // Format helper functions
-
-    public function contractTypeName(): string
+    public function parseFromProperty($string)
     {
-        return static::randomElement(static::$contractTypeNames);
-    }
+        $callback = function ($matches) {
+            if(! property_exists(self::class, $matches[1]) || ! is_array(static::${$matches[1]}))
+            {
+                throw new \InvalidArgumentException(sprintf('Unknown format "%s"', $matches[1]));
+            }
+            return static::randomElement(static::${$matches[1]});
+        };
 
-    public function contractTypeSuffix(): string
-    {
-        return 'Contract';
-    }
-
-    public function functionName(): string
-    {
-        return static::randomElement(static::$functionNames);
-    }
-
-    public function functionPrefix(): string
-    {
-        return static::randomElement(static::$functionPrefixes);
-    }
-
-    public function locationCity(): string
-    {
-        return static::randomElement(static::$locationCities);
-    }
-
-    public function locationName(): string
-    {
-        return static::randomElement(static::$locationNames);
-    }
-
-    public function locationPrefix(): string
-    {
-        return static::randomElement(static::$locationPrefixes);
-    }
-
-    public function locationRegion(): string
-    {
-        return static::randomElement(static::$locationRegions);
-    }
-
-    public function locationSuffix(): string
-    {
-        return static::randomElement(static::$locationSuffixes);
-    }
-
-    public function locationTree(): string
-    {
-        return static::randomElement(static::$locationTrees);
-    }
-
-    public function prependLocation(): string
-    {
-        return 'Locatie';
-    }
-
-    public function teamCare(): string
-    {
-        return static::randomElement(static::$teamCares);
-    }
-
-    public function teamDisease(): string
-    {
-        return static::randomElement(static::$teamDiseases);
-    }
-
-    public function teamName(): string
-    {
-        return static::randomElement(static::$teamNames);
-    }
-
-    public function teamPrefix(): string
-    {
-        return static::randomElement(static::$teamPrefixes);
-    }
-
-    public function teamSuffix(): string
-    {
-        return static::randomElement(static::$teamSuffixes);
+        return preg_replace_callback('/{{\s?(\w+|[\w\\\]+->\w+?)\s?}}/u', $callback, $string);
     }
 }
