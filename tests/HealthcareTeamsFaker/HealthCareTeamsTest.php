@@ -102,7 +102,7 @@ final class HealthCareTeamsTest extends TestCase
         }
     }
 
-    public function test_name_elements_are_correctly_parsed()
+    public function test_name_elements_are_correctly_parsed(): void
     {
         foreach ($this->folder as $folder) {
 

@@ -182,7 +182,7 @@ class HealthCareTeams extends Base
         return $team;
     }
 
-    public function parseFromProperty($string)
+    public function parseFromProperty(string $string): string
     {
         $callback = function ($matches) {
             if(! property_exists(self::class, $matches[1]) || ! is_array(static::${$matches[1]}))
