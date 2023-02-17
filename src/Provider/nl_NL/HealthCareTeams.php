@@ -2,37 +2,172 @@
 
 declare(strict_types=1);
 
-
 namespace HealthcareTeamsFaker\Provider\nl_NL;
 
 use Faker\Provider\Base;
 
 class HealthCareTeams extends Base
 {
+    public static array $contractTypeFormats = [
+        '{{contractTypeName}}',
+        '{{contractTypeName}} {{contractTypeSuffix}}',
+    ];
+
+    public static array $contractTypeSuffix = [
+        'Contract',
+    ];
+
+    public static array $contractTypeName = [
+        'Bepaalde tijd fulltime', 'Bepaalde tijd parttime', 'Externe', 'Leerling BBL', 'Leerling BOL',
+        'Medewerker in opleiding', 'Onbepaalde tijd fulltime', 'Onbepaalde tijd parttime', 'Oproepkracht',
+        'Uitzendkracht', 'Vrijwilliger', 'ZZP-er'
+    ];
+
+    public static array $functionFormats = [
+        '{{functionName}}',
+        '{{functionPrefix}} {{functionName}}',
+    ];
+
+    public static array $functionGroupNames = [
+        'Arts/specialist', 'Bestuur', 'Facilitair', 'HR / P&O', 'ICT & ApplicatieBeheer', 'Klantadministratie',
+        'Paramedisch', 'Receptie', 'Stage / Opleidingsplaatsen', 'Verplegers', 'Verzorgenden', 'Vrijwilligers', 'Wasserij'
+    ];
+
+    public static array $functionName = [
+        'Applicatiebeheerder', 'Arts Specialist', 'Arts', 'Basis Arts', 'Begeleider', 'Chauffeur', 'Diëtist', 'Gastvrouw',
+        'Inkoper', 'Inkoper', 'Kok', 'Magazijn', 'Onderhoudstechnicus', 'Praktijkverpleegkundige', 'Psycholoog',
+        'Receptionist', 'Receptioniste', 'Secretaresse', 'Sous chef', 'Staf', 'Therapeut', 'Verpleegkundige', 'Verzorgende',
+        'Voorman', 'Vrijwilliger', 'Wijkverpleegkundige'
+    ];
+
+    public static array $functionPrefix = [
+        'Adviseur', 'Assistent', 'Coordinator', 'Hoofd', 'Inval', 'Junior', 'Leerling', 'Manager', 'Medewerker',
+        'Recruiter', 'Regie', 'Stagiaire', 'Teamleider'
+    ];
+
+    public static array $locationCity = [
+        'Amersfoort', 'Enschede', 'Haarlem', 'Heerenberg', 'Hollum', 'Klundert', 'Kortenhoef', 'Leiden', 'Purmerend',
+        'Schinveld', 'Utrecht', 'Vreeland', 'Waddinxveen', 'Wierden'
+    ];
+
+    public static array $locationFormats = [
+        '{{locationCity}} {{locationRegion}}',
+        '{{locationPrefix}} {{locationName}}{{locationSuffix}}',
+        '{{locationPrefix}} {{locationTree}}{{locationSuffix}}',
+        '{{prependLocation}} {{locationCity}}',
+        '{{prependLocation}} {{locationName}}{{locationSuffix}}',
+        '{{prependLocation}} {{locationTree}}',
+    ];
+
+    public static array $locationName = [
+        'Doenrade' ,'Dussen' ,'Essen' ,'Horn' ,'Laar' ,'Mensinge' ,'Nuwen' ,'Ooijen' ,'Vanen' ,'Wychen'
+    ];
+
+    public static array $locationPrefix = [
+        'Grote', 'Kleine', 'Nieuwe', 'Oude'
+    ];
+
+    public static array $locationRegion = [
+        'Midden', 'Noord', 'Oost', 'West', 'Zuid'
+    ];
+
+    public static array $locationSuffix = [
+        'burcht', 'haven', 'hof', 'kerk', 'land', 'molen', 'schut', 'sluis', 'vijver', 'water'
+    ];
+
+    public static array $locationTree = [
+        'Esdoorn', 'Hazelaar', 'Hulst', 'Kastanje', 'Magnolia', 'Meidoorn', 'Olijfboom', 'Vlier', 'Waterwilg', 'Zilverlinde'
+    ];
+
+    public static array $prependLocation = [
+        'Locatie',
+    ];
+
+    public static array $specialisationGroupNames = [
+        'Aandoening/ziektebeeld', 'Leren en werken', 'Organisatie', 'Overig', 'Welzijn', 'Zorg en Behandeling'
+    ];
+
+    public static array $specialisationNames = [
+        'Arbeidsvoorwaarden', 'Bloed prikken', 'Coaching', 'Dagbesteding', 'Declaraties', 'Dementie', 'Duurzaamheid',
+        'Evenementen', 'Gegevensbescherming', 'Hartfalen', 'Intranet', 'Klachten', 'Leren en werken', 'Longaandoeningen',
+        'Manuele therapie', 'Multiculturele zorg', 'Palliatieve zorg', 'Reuma', 'Salaris', 'Stagebegeleiding',
+        'Veiligheid', 'Voeding', 'Website', 'Wetgeving', 'Zorgadministratie'
+    ];
+
+    public static array $teamCare = [
+        'Behandeling', 'Dagbehandeling', 'Dagbesteding', 'Opname', 'Wijkverpleging'
+    ];
+
+    public static array $teamDisease = [
+        'COPD', 'Dementie', 'Dermatologie', 'Endocrinologie', 'Ergotherapie', 'Fysiotherapie', 'Geriatrie',
+        'Gynaecologie', 'KNO', 'Oncologie', 'Psychotherapie'
+    ];
+
+    public static array $teamFormats = [
+        '{{teamDisease}} {{teamCare}}',
+        '{{teamName}} {{teamSuffix}}',
+        '{{teamPrefix}} {{teamName}}'
+    ];
+
+    public static array $teamName = [
+        'Applicatiebeheer', 'Financien', 'HRM', 'Huishoudelijke dienst', 'Informatievoorziening', 'Linnendienst',
+        'Onderzoek', 'Receptie', 'Receptie', 'Voedingsdienst'
+    ];
+
+    public static array $teamSuffix = [
+        '1', '2', '3', '4', '5', '1a', '2a', '3b', '4a', '5b',
+    ];
+
+    public static array $teamPrefix = [
+        'Managers', 'Team',
+    ];
+
     /*
-     *  Returns a two part location name.
-     *  Location name is created with multiple elements in altering compositions in a human-readable sequence.
+     *  Returns a one or two part contractType name.
      */
+    public function contractType(): string
+    {
+        return $this->parseFromProperty(static::randomElement(static::$contractTypeFormats));
+    }
+
+    /*
+    *  Returns a one or two part function name.
+    */
+    public function function(): string
+    {
+        return $this->parseFromProperty(static::randomElement(static::$functionFormats));
+    }
+
+    /*
+    *  Returns a one or two part functionGroup name.
+    */
+    public function functionGroup(): string
+    {
+        return static::randomElement(static::$functionGroupNames);
+    }
+
+    /*
+    *  Returns a two part location name.
+    */
     public function location(): string
     {
-        $locationName = '';
-        $composition = static::randomElement(HealthCareTeamsData::$locationCompositions);
+        return $this->parseFromProperty(static::randomElement(static::$locationFormats));
+    }
 
-        foreach (HealthCareTeamsData::$locationNameElements as $nameElement)
-        {
-            match ($nameElement)
-            {
-                'location' => $locationName = $this->addElementWhenInComposition($composition, $nameElement, $locationName, 'Locatie '),
-                'place' => $locationName = $this->addElementWhenInComposition($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationPlaces)),
-                'region' => $locationName = $this->addElementWhenInComposition($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationRegions)),
-                'prefix' => $locationName = $this->addElementWhenInComposition($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationPrefix)),
-                'tree' => $locationName = $this->addElementWhenInComposition($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationTrees)),
-                'name' => $locationName = $this->addElementWhenInComposition($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationNames)),
-                'suffix' => $locationName = $this->addElementWhenInComposition($composition, $nameElement, $locationName, static::randomElement(HealthCareTeamsData::$locationSuffix)),
-            };
-        }
+    /*
+    *  Returns a one to three part specialisation name.
+    */
+    public function specialisation(): string
+    {
+        return static::randomElement(static::$specialisationNames);
+    }
 
-        return trim($locationName);
+    /*
+    *  Returns a one to three part specialisationGroup name.
+    */
+    public function specialisationGroup(): string
+    {
+        return static::randomElement(static::$specialisationGroupNames);
     }
 
     /*
@@ -40,126 +175,26 @@ class HealthCareTeams extends Base
     */
     public function team(string $location = null): string
     {
-        $teamName = '';
-        $composition = static::randomElement(HealthCareTeamsData::$teamCompositions);
+        $team = $this->parseFromProperty(static::randomElement(static::$teamFormats));
 
-        foreach (HealthCareTeamsData::$teamNameElements as $nameElement)
+        if(isset($location))
         {
-            match ($nameElement)
-            {
-                'prefix' => $teamName = $this->addElementWhenInComposition($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamPrefix)),
-                'name' => $teamName = $this->addElementWhenInComposition($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamNames)),
-                'disease' => $teamName = $this->addElementWhenInComposition($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamDiseases)),
-                'care' => $teamName = $this->addElementWhenInComposition($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamCare)),
-                'suffix' => $teamName = $this->addElementWhenInComposition($composition, $nameElement, $teamName, static::randomElement(HealthCareTeamsData::$teamSuffix)),
-            };
+            $team = $location . ' ' . $team;
         }
 
-        if($location)
-        {
-            $teamName = $location . ' ' . $teamName;
-        }
-
-        return trim($teamName);
+        return $team;
     }
 
-    public function functiongroup()
+    public function parseFromProperty(string $string): string
     {
-        $functionGroupName = '';
-        $composition = static::randomElement(HealthCareTeamsData::$functionGroupCompositions);
-
-        foreach (HealthCareTeamsData::$functionGroupNameElements as $nameElement)
-        {
-            match ($nameElement)
+        $callback = function ($matches) {
+            if(! property_exists(self::class, $matches[1]) || ! is_array(static::${$matches[1]}))
             {
-                'name' => $functionGroupName = $this->addElementWhenInComposition($composition, $nameElement,$functionGroupName, static::randomElement(HealthCareTeamsData::$functionGroupNames)),
-            };
-        }
+                throw new \InvalidArgumentException(sprintf('Unknown format "%s"', $matches[1]));
+            }
+            return static::randomElement(static::${$matches[1]});
+        };
 
-        return trim($functionGroupName);
-    }
-
-    /*
-   *  Returns a one or two part function name.
-   */
-    public function function(): string
-    {
-        $functionName = '';
-        $composition = static::randomElement(HealthCareTeamsData::$functionCompositions);
-
-        foreach (HealthCareTeamsData::$functionNameElements as $nameElement)
-        {
-            match ($nameElement)
-            {
-                'prefix' => $functionName = $this->addElementWhenInComposition($composition, $nameElement, $functionName, static::randomElement(HealthCareTeamsData::$functionPrefix)),
-                'name' => $functionName = $this->addElementWhenInComposition($composition, $nameElement, $functionName, static::randomElement(HealthCareTeamsData::$functionNames)),
-            };
-        }
-
-        return trim($functionName);
-    }
-    public function specialisationGroup(): string
-    {
-        $specialisationGroupName = '';
-        $composition = static::randomElement(HealthCareTeamsData::$specialisationGroupCompositions);
-
-        foreach (HealthCareTeamsData::$specialisationGroupNameElements as $nameElement)
-        {
-            match ($nameElement)
-            {
-                'name' => $specialisationGroup = $this->addElementWhenInComposition($composition, $nameElement, $specialisationGroupName, static::randomElement(HealthCareTeamsData::$specialisationGroupNames)),
-            };
-        }
-
-        return trim($specialisationGroup);
-    }
-
-    public function specialisation(): string
-    {
-        $specialisationName = '';
-        $composition = static::randomElement(HealthCareTeamsData::$specialisationCompositions);
-
-        foreach (HealthCareTeamsData::$specialisationNameElements as $nameElement)
-        {
-            match ($nameElement)
-            {
-                'name' => $specialisation = $this->addElementWhenInComposition($composition, $nameElement, $specialisationName, static::randomElement(HealthCareTeamsData::$specialisationNames)),
-            };
-        }
-
-        return trim($specialisation);
-    }
-
-    /*
-    *  Returns a one or two part function name.
-    */
-    public function contractType(): string
-    {
-        $contractTypeName = '';
-        $composition = static::randomElement(HealthCareTeamsData::$contractTypeCompositions);
-
-        foreach (HealthCareTeamsData::$contractTypeNameElements as $nameElement)
-        {
-            match ($nameElement)
-            {
-                'name' => $contractType = $this->addElementWhenInComposition($composition, $nameElement, $contractTypeName, static::randomElement(HealthCareTeamsData::$contractTypeNames)),
-                'suffix' => $contractType = $this->addElementWhenInComposition($composition, $nameElement, $contractTypeName, 'Contract'),
-            };
-        }
-
-        return trim($contractTypeName);
-    }
-
-
-    /*
-    *  Adds extra part to a name when passed option is present in passed element.
-    */
-    public function addElementWhenInComposition(string $option, string $element, string $name, string $partName,): string
-    {
-        if(str_contains($option, $element))
-        {
-           $name .= $partName;
-        }
-        return $name;
+        return preg_replace_callback('/{{\s?(\w+|[\w\\\]+->\w+?)\s?}}/u', $callback, $string);
     }
 }

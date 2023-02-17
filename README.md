@@ -21,16 +21,16 @@ $faker->addProvider(new \HealthCareTeams\Provider\en_US\HealthCareTeams($faker))
 
 ## Available Generators
 ```php
-$faker->location(); 
-$faker->team(); // optional: location name to prepend
-$faker->specialisationGroup(); 
-$faker->specialisation(); 
-$faker->functionGroup();  
-$faker->function(); 
 $faker->contractType(); 
+$faker->function(); 
+$faker->functionGroup(); 
+$faker->location(); 
+$faker->specialisation(); 
+$faker->specialisationGroup(); 
+$faker->team(); // optional: pass location name to prepend
 ```
 
-## Available language specific formatters
+## Available language formatters / locales
 
 * en_US
 * nl_NL
