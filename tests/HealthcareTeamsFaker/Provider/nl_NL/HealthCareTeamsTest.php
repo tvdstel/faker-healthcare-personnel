@@ -29,6 +29,7 @@ class HealthCareTeamsTest extends TestCase
         $this->assertEquals(1, $this->containsFormatOptionCount($provider::$prependLocation, $name));
         $this->assertEquals(1, $this->containsFormatOptionCount($provider::$locationName, $name));
         $this->assertEquals(1, $this->containsFormatOptionCount($provider::$locationSuffix, $name));
+        $this->assertEquals(0, $this->containsFormatOptionCount($provider::$locationCity, $name));
     }
 
     public function containsFormatOptionCount(array $options, string $name): int
