@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class HealthCareTeamsTest extends TestCase
 {
-    public function test_contractType_can_be_formatted_correctly(): void
+    public function test_contract_type_can_be_formatted_correctly(): void
     {
         $faker = Factory::create();
         $faker->addProvider(new HealthCareTeams($faker));
@@ -30,9 +30,8 @@ class HealthCareTeamsTest extends TestCase
     public function containsFormatOptionCount(array $options, string $name): int
     {
         $i = 0;
-        foreach ($options as $part)
-        {
-            ! str_contains($name, $part) ?:$i++;
+        foreach ($options as $part) {
+            ! str_contains($name, $part) ?: $i++;
         }
 
         return $i;
