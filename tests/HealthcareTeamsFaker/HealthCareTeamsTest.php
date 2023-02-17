@@ -25,6 +25,7 @@ final class HealthCareTeamsTest extends TestCase
         $class = $this->prefix . $folder . $this->suffix;
         $faker = Factory::create();
         $faker->addProvider(new $class($faker));
+
         return $faker;
     }
 
