@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class HealthCareTeamsTest extends TestCase
 {
+
     public function test_location_name_can_be_formatted_correctly(): void
     {
         $faker = Factory::create();
