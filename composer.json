@@ -22,7 +22,7 @@
     "type": "library",
     "scripts": {
         "test": "vendor/bin/phpunit .",
-        "cs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+        "cs": "vendor/bin/php-cs-fixer fix --config=.php_cs.dist.php"
     },
     "name": "tvkvds/faker-healthcare-personnel",
     "description": "Faking healthcare teams related data",

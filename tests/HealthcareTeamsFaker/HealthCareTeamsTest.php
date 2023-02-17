@@ -20,13 +20,18 @@ final class HealthCareTeamsTest extends TestCase
         $this->folder = array_diff(scandir('src/Provider'), ['..', '.']);
     }
 
+    public function setFaker($folder): \Faker\Generator
+    {
+        $class = $this->prefix . $folder . $this->suffix;
+        $faker = Factory::create();
+        $faker->addProvider(new $class($faker));
+        return $faker;
+    }
+
     public function test_contract_type_returns_string_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
-
+            $faker = $this->setFaker($folder);
             $contractType = $faker->contractType();
 
             $this->assertIsString($contractType);
@@ -37,10 +42,7 @@ final class HealthCareTeamsTest extends TestCase
     public function test_function_returns_string_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
-
+            $faker = $this->setFaker($folder);
             $function = $faker->function();
 
             $this->assertIsString($function);
@@ -51,10 +53,7 @@ final class HealthCareTeamsTest extends TestCase
     public function test_function_group_returns_string_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
-
+            $faker = $this->setFaker($folder);
             $functionGroup = $faker->functionGroup();
 
             $this->assertIsString($functionGroup);
@@ -65,10 +64,7 @@ final class HealthCareTeamsTest extends TestCase
     public function test_location_returns_string_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
-
+            $faker = $this->setFaker($folder);
             $location = $faker->location();
 
             $this->assertIsString($location);
@@ -79,10 +75,7 @@ final class HealthCareTeamsTest extends TestCase
     public function test_specialisation_returns_string_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
-
+            $faker = $this->setFaker($folder);
             $specialisation = $faker->specialisation();
 
             $this->assertIsString($specialisation);
@@ -93,10 +86,7 @@ final class HealthCareTeamsTest extends TestCase
     public function test_specialisation_group_returns_string_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
-
+            $faker = $this->setFaker($folder);
             $specialisationGroup = $faker->specialisationGroup();
 
             $this->assertIsString($specialisationGroup);
@@ -107,10 +97,7 @@ final class HealthCareTeamsTest extends TestCase
     public function test_team_returns_string_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
-
+            $faker = $this->setFaker($folder);
             $team = $faker->team();
 
             $this->assertIsString($team);
@@ -121,9 +108,7 @@ final class HealthCareTeamsTest extends TestCase
     public function test_team_can_be_prepended_with_location_in_all_languages(): void
     {
         foreach ($this->folder as $folder) {
-            $class = $this->prefix . $folder . $this->suffix;
-            $faker = Factory::create();
-            $faker->addProvider(new $class($faker));
+            $faker = $this->setFaker($folder);
 
             $location = $faker->location();
             $team = $faker->team($location);
@@ -133,7 +118,6 @@ final class HealthCareTeamsTest extends TestCase
         }
     }
 
-    // TODO refactor and move to locale?
     public function test_name_elements_are_correctly_parsed(): void
     {
         foreach ($this->folder as $folder) {
