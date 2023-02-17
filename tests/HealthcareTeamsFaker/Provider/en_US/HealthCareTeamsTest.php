@@ -9,7 +9,8 @@ use PHPUnit\Framework\TestCase;
 
 class HealthCareTeamsTest extends TestCase
 {
-    public function test_contract_type_can_be_formatted_correctly(): void
+
+    public function test_contract_type_name_can_be_formatted_correctly(): void
     {
         $faker = Factory::create();
         $faker->addProvider(new HealthCareTeams($faker));

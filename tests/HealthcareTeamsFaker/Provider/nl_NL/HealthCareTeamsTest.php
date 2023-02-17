@@ -9,7 +9,8 @@ use PHPUnit\Framework\TestCase;
 
 class HealthCareTeamsTest extends TestCase
 {
-    public function test_contract_type_can_be_formatted_correctly(): void
+
+    public function test_location_name_can_be_formatted_correctly(): void
     {
         $faker = Factory::create();
         $faker->addProvider(new HealthCareTeams($faker));
@@ -29,6 +30,7 @@ class HealthCareTeamsTest extends TestCase
         $this->assertEquals(1, $this->containsFormatOptionCount($provider::$prependLocation, $name));
         $this->assertEquals(1, $this->containsFormatOptionCount($provider::$locationName, $name));
         $this->assertEquals(1, $this->containsFormatOptionCount($provider::$locationSuffix, $name));
+        $this->assertEquals(0, $this->containsFormatOptionCount($provider::$locationCity, $name));
     }
 
     public function containsFormatOptionCount(array $options, string $name): int
