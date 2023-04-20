@@ -16,20 +16,21 @@ final class HealthCareTeamsTest extends TestCase
 
     protected string $suffix = '\HealthCareTeams';
 
+    protected string $class;
+
     public function setUp(): void
     {
         $pathBaseClass = explode('\\', HealthCareTeamsBase::class);
         $nameBaseClass =  array_pop($pathBaseClass) . '.php';
 
         $this->folder = array_diff(scandir('src/Provider'), ['..', '.', $nameBaseClass]);
-        var_dump($this->folder);
     }
 
     public function setFaker($folder): \Faker\Generator
     {
-        $class = $this->prefix . $folder . $this->suffix;
+        $this->class = $this->prefix . $folder . $this->suffix;
         $faker = Factory::create();
-        $faker->addProvider(new $class($faker));
+        $faker->addProvider(new $this->class($faker));
 
         return $faker;
     }
@@ -121,6 +122,36 @@ final class HealthCareTeamsTest extends TestCase
 
             $this->assertIsString($faker->team());
             $this->assertStringContainsString($location, $team);
+        }
+    }
+
+    public function test_class_can_parse_properties(): void
+    {
+        foreach ($this->folder as $folder)
+        {
+            $faker = $this->setFaker($folder);
+            $provider = new $this->class($faker);
+
+            $provider::$locationSuffix = [''];
+            $provider::$locationCity = ['City'];
+            $provider::$locationRegion = ['Region'];
+            $provider::$locationTree = ['Tree'];
+
+            $provider::$locationFormats = ['{{locationSuffix}}'];
+            $contractType = $faker->location();
+            $this->assertEquals('', $contractType);
+
+            $provider::$locationFormats = ['{{locationCity}}'];
+            $contractType = $faker->location();
+            $this->assertEquals('City', $contractType);
+
+            $provider::$locationFormats = ['{{locationCity}} {{locationRegion}}'];
+            $contractType = $faker->location();
+            $this->assertEquals('City Region', $contractType);
+
+            $provider::$locationFormats = ['{{locationCity}} {{locationRegion}}{{locationTree}}'];
+            $contractType = $faker->location();
+            $this->assertEquals('City RegionTree', $contractType);
         }
     }
 }
