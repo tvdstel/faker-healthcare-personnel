@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace HealthcareTeamsFaker\Provider\en_US;
 
-use Faker\Provider\Base;
+use HealthcareTeamsFaker\Provider\HealthCareTeamsBase;
 
-class HealthCareTeams extends Base
+class HealthCareTeams extends HealthCareTeamsBase
 {
     public static array $contractTypeFormats = [
         '{{contractTypeName}}',
@@ -180,19 +180,6 @@ class HealthCareTeams extends Base
         }
 
         return $team;
-    }
-
-    public function parseFromProperty(string $string): string
-    {
-        $callback = function ($matches) {
-            if(! property_exists(self::class, $matches[1]) || ! is_array(static::${$matches[1]}))
-            {
-                throw new \InvalidArgumentException(sprintf('Unknown format "%s"', $matches[1]));
-            }
-            return static::randomElement(static::${$matches[1]});
-        };
-
-        return preg_replace_callback('/{{\s?(\w+|[\w\\\]+->\w+?)\s?}}/u', $callback, $string);
     }
 }
 

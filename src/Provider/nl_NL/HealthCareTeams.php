@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace HealthcareTeamsFaker\Provider\nl_NL;
 
-use Faker\Provider\Base;
+use HealthcareTeamsFaker\Provider\HealthCareTeamsBase;
 
-class HealthCareTeams extends Base
+class HealthCareTeams extends HealthCareTeamsBase
 {
     public static array $contractTypeFormats = [
         '{{contractTypeName}}',
