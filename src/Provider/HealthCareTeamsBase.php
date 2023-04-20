@@ -36,6 +36,7 @@ class HealthCareTeamsBase extends Base
     public static array $functionPrefix = [];
 
     public static array $locationCity = [];
+    
     public static array $locationFormats = [];
 
     public static array $locationName = [];
