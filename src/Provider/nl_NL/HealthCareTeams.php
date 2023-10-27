@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HealthcareTeamsFaker\Provider\nl_NL;
 
+use Faker\Factory;
 use HealthcareTeamsFaker\Provider\HealthCareTeamsBase;
 
 class HealthCareTeams extends HealthCareTeamsBase
@@ -183,6 +184,13 @@ class HealthCareTeams extends HealthCareTeamsBase
         }
 
         return $team;
+    }
+
+    public function numberAmount(): string
+    {
+        $faker = Factory::create();
+        $percentage = mt_rand(0,1) ? '%' : '';
+        return $faker->randomNumber(3) . $percentage;
     }
 
     public function parseFromProperty(string $string): string

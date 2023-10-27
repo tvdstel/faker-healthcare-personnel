@@ -125,6 +125,17 @@ final class HealthCareTeamsTest extends TestCase
         }
     }
 
+    public function test_number_amount_returns_string_in_all_languages(): void
+    {
+        foreach ($this->folder as $folder) {
+            $faker = $this->setFaker($folder);
+            $number = $faker->numberAmount();
+
+            $this->assertIsString($number);
+            $this->assertNotEmpty($number);
+        }
+    }
+
     public function test_class_can_parse_properties(): void
     {
         foreach ($this->folder as $folder) {
