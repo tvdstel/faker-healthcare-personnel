@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace HealthcareTeamsFaker;
 
 use Faker\Factory;
-use HealthcareTeamsFaker\Provider\HealthCareTeamsBase;
 use PHPUnit\Framework\TestCase;
+use HealthcareTeamsFaker\Provider\HealthCareTeamsBase;
 
 final class HealthCareTeamsTest extends TestCase
 {
@@ -21,7 +21,7 @@ final class HealthCareTeamsTest extends TestCase
     public function setUp(): void
     {
         $pathBaseClass = explode('\\', HealthCareTeamsBase::class);
-        $nameBaseClass =  array_pop($pathBaseClass) . '.php';
+        $nameBaseClass = array_pop($pathBaseClass) . '.php';
 
         $this->folder = array_diff(scandir('src/Provider'), ['..', '.', $nameBaseClass]);
     }
@@ -127,8 +127,7 @@ final class HealthCareTeamsTest extends TestCase
 
     public function test_class_can_parse_properties(): void
     {
-        foreach ($this->folder as $folder)
-        {
+        foreach ($this->folder as $folder) {
             $faker = $this->setFaker($folder);
             $provider = new $this->class($faker);
 
