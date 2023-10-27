@@ -187,7 +187,7 @@ class HealthCareTeams extends HealthCareTeamsBase
     {
         $faker = Factory::create();
         $percentage = mt_rand(0,1) ? '%' : '';
-        return $faker->randomNumber(3) . $percentage;
+        return $faker->randomNumber(5) . $percentage;
     }
 }
 
