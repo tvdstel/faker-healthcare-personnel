@@ -190,7 +190,7 @@ class HealthCareTeams extends HealthCareTeamsBase
 
         return $team;
     }
-
+  
     public function postalCodeNl(): string
     {
         return $this->faker->regexify('/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i');
