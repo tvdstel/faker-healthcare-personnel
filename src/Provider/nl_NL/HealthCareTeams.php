@@ -4,10 +4,21 @@ declare(strict_types=1);
 
 namespace HealthcareTeamsFaker\Provider\nl_NL;
 
+use Faker\Factory;
+use Faker\Generator;
 use HealthcareTeamsFaker\Provider\HealthCareTeamsBase;
 
 class HealthCareTeams extends HealthCareTeamsBase
 {
+
+    private Generator $faker;
+
+    public function __construct(Generator $generator)
+    {
+        parent::__construct($generator);
+        $this->faker = Factory::create();
+    }
+
     public static array $contractTypeFormats = [
         '{{contractTypeName}}',
         '{{contractTypeName}} {{contractTypeSuffix}}',
@@ -183,6 +194,17 @@ class HealthCareTeams extends HealthCareTeamsBase
         }
 
         return $team;
+    }
+
+    public function numberAmount(): string
+    {
+        $percentage = mt_rand(0,1) ? '%' : '';
+        return $this->faker->randomNumber(5) . $percentage;
+    }
+
+    public function postalCodeNl(): string
+    {
+        return $this->faker->regexify('/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i');
     }
 
     public function parseFromProperty(string $string): string

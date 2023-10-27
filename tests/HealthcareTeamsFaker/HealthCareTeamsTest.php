@@ -125,6 +125,17 @@ final class HealthCareTeamsTest extends TestCase
         }
     }
 
+    public function test_postal_code_NL_returns_string_in_all_languages(): void
+    {
+        foreach ($this->folder as $folder) {
+            $faker = $this->setFaker($folder);
+            $postalCode = $faker->postalCodeNl();
+
+            $this->assertIsString($postalCode);
+            $this->assertNotEmpty($postalCode);
+        }
+    }
+
     public function test_class_can_parse_properties(): void
     {
         foreach ($this->folder as $folder) {
