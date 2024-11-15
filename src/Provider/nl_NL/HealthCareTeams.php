@@ -204,7 +204,7 @@ class HealthCareTeams extends HealthCareTeamsBase
 
     public function postalCodeNl(): string
     {
-        return $this->faker->regexify('/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i');
+        return $this->faker->regexify('[1-9][0-9]{3} [A-Z]{2}');
     }
 
     public function parseFromProperty(string $string): string
